@@ -401,8 +401,6 @@
                                     buildFrameworkVersion = ${qcadoo.version}
                                     buildVersionForUser = ${qcadoo.buildVersionForUser}
                                     buildTime = ${maven.build.timestamp}
-                                    ${buildNumber}
-                                    buildRevision = ${buildRevision}
                                 </echo>
                             </target>
                         </configuration>
