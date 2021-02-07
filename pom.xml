@@ -14,13 +14,9 @@
     <artifactId>mes</artifactId>
     <version>1.5-SNAPSHOT</version>
     <packaging>pom</packaging>
-
     <name>Qcadoo MES</name>
-
     <description/>
-
     <url>https://github.com/qcadoo/mes</url>
-
     <organization>
         <name>Qcadoo Limited</name>
         <url>http://www.qcadoo.com/</url>

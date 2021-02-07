@@ -12,7 +12,6 @@ import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.DataFormat;
-import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.xssf.usermodel.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -62,7 +61,7 @@ public class MaintenanceEventsXlsService {
     }
 
     private int fillEventsRows(XSSFWorkbook xssfWorkbook, XSSFSheet sheet, MaintenanceEventDTO event, int rowCounter,
-            CellStyle numberStyle, CellStyle dateStyle, CellStyle dateTimeStyle, CellStyle timeStyle, Locale locale) {
+                               CellStyle numberStyle, CellStyle dateStyle, CellStyle dateTimeStyle, CellStyle timeStyle, Locale locale) {
         int rowCounterCopy = rowCounter;
         int partsCounter = rowCounterCopy;
         int realizationsCounter = rowCounterCopy;
@@ -72,7 +71,6 @@ public class MaintenanceEventsXlsService {
         font.setFontName("ARIAL");
         font.setItalic(false);
         font.setBold(false);
-        font.setBoldweight(Font.BOLDWEIGHT_NORMAL);
 
         font.setColor(HSSFColor.BLACK.index);
 
@@ -242,7 +240,7 @@ public class MaintenanceEventsXlsService {
     }
 
     private void fillStateChanges(MaintenanceEventDTO event, XSSFRow eventLine, CellStyle dateStyle, CellStyle dateTimeStyle,
-            Locale locale) {
+                                  Locale locale) {
 
         XSSFCell createDate = eventLine.createCell(MaintenanceEventsElementsReportEnum.CREATE_DATE.getPosition());
         if (event.getCreateDate() != null) {
@@ -323,7 +321,7 @@ public class MaintenanceEventsXlsService {
         font.setFontName("ARIAL");
         font.setItalic(false);
         font.setBold(true);
-        font.setBoldweight(Font.BOLDWEIGHT_BOLD);
+        font.setBold(true);
 
         font.setColor(HSSFColor.BLACK.index);
         XSSFCellStyle style = xssfWorkbook.createCellStyle();

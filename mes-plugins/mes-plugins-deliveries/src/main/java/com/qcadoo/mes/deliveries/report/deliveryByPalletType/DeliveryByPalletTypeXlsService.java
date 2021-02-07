@@ -37,7 +37,7 @@ class DeliveryByPalletTypeXlsService {
     }
 
     public void buildExcelContent(final XSSFWorkbook workbook, final XSSFSheet sheet, final Map<String, Object> filters,
-            final Locale locale) {
+                                  final Locale locale) {
         List<Entity> pallets = getTypeOfPallets();
         fillHeaderRow(workbook, sheet, 0, locale, pallets);
         Map<DeliveryByPalletTypeKey, DeliveryByPalletTypeValue> deliveryByPalletType = dataProvider.findEntries(filters);
@@ -56,11 +56,11 @@ class DeliveryByPalletTypeXlsService {
     }
 
     private void fillRows(final XSSFWorkbook workbook, final XSSFSheet sheet, int rowNum, final Locale locale,
-            Map<DeliveryByPalletTypeKey, DeliveryByPalletTypeValue> deliveryByPalletType, final List<Entity> pallets) {
+                          Map<DeliveryByPalletTypeKey, DeliveryByPalletTypeValue> deliveryByPalletType, final List<Entity> pallets) {
         Font font = workbook.createFont();
         font.setFontName(HSSFFont.FONT_ARIAL);
         font.setFontHeightInPoints((short) 10);
-        font.setBoldweight(Font.BOLDWEIGHT_NORMAL);
+        font.setBold(true);
         DataFormat dataFormat = workbook.createDataFormat();
 
         CellStyle dateStyle = workbook.createCellStyle();
@@ -100,14 +100,14 @@ class DeliveryByPalletTypeXlsService {
     }
 
     private void fillHeaderRow(final XSSFWorkbook workbook, final XSSFSheet sheet, final int rowNum, final Locale locale,
-            final List<Entity> pallets) {
+                               final List<Entity> pallets) {
         XSSFRow headerLine = sheet.createRow(rowNum);
         XSSFFont font = workbook.createFont();
         font.setFontHeightInPoints((short) 10);
         font.setFontName("ARIAL");
         font.setItalic(false);
         font.setBold(true);
-        font.setBoldweight(Font.BOLDWEIGHT_BOLD);
+        font.setBold(true);
 
         font.setColor(HSSFColor.BLACK.index);
         XSSFCellStyle style = workbook.createCellStyle();

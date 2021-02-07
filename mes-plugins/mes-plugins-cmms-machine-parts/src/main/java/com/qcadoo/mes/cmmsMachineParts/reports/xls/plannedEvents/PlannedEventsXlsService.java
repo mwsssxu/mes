@@ -46,7 +46,7 @@ public class PlannedEventsXlsService {
     }
 
     public void buildExcelContent(final XSSFWorkbook workbook, final XSSFSheet sheet, final Map<String, Object> filters,
-            final Locale locale) {
+                                  final Locale locale) {
         List<PlannedEventDTO> events = plannedEventsXLSDataProvider.getEvents(filters);
         fillHeaderRow(workbook, sheet, 0, locale);
         DataFormat dataFormat = workbook.createDataFormat();
@@ -76,7 +76,6 @@ public class PlannedEventsXlsService {
         font.setFontName("ARIAL");
         font.setItalic(false);
         font.setBold(true);
-        font.setBoldweight(Font.BOLDWEIGHT_BOLD);
 
         font.setColor(HSSFColor.BLACK.index);
         XSSFCellStyle style = workbook.createCellStyle();
@@ -93,11 +92,11 @@ public class PlannedEventsXlsService {
     }
 
     private int fillEventsRows(final XSSFWorkbook workbook, final XSSFSheet sheet, final PlannedEventDTO event, int rowCounter,
-            CellStyle numberStyle, CellStyle dateStyle, CellStyle dateTimeStyle, CellStyle timeStyle, final Locale locale) {
+                               CellStyle numberStyle, CellStyle dateStyle, CellStyle dateTimeStyle, CellStyle timeStyle, final Locale locale) {
         Font font = workbook.createFont();
         font.setFontName(HSSFFont.FONT_ARIAL);
         font.setFontHeightInPoints((short) 10);
-        font.setBoldweight(Font.BOLDWEIGHT_NORMAL);
+        font.setBold(false);
 
         int rowCounterCopy = rowCounter;
         int partsCounter = rowCounterCopy;
